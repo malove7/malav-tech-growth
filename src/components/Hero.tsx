@@ -57,7 +57,7 @@ const Hero = () => {
               <div className="text-white/70 text-sm">Years Experience</div>
             </div>
             <div className="text-center">
-              <div className="text-3xl font-bold text-white">CTO</div>
+              <div className="text-3xl font-bold text-white">CTO & Delivery Head</div>
               <div className="text-white/70 text-sm">Current Role</div>
             </div>
             <div className="text-center">
