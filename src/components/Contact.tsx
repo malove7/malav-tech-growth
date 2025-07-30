@@ -1,44 +1,29 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { 
-  Phone, 
-  Mail, 
-  Linkedin, 
-  MapPin,
-  Download,
-  ExternalLink
-} from "lucide-react";
-
+import { Phone, Mail, Linkedin, MapPin, Download, ExternalLink } from "lucide-react";
 const Contact = () => {
-  const contactInfo = [
-    {
-      icon: Phone,
-      label: "Phone",
-      value: "+91 80000 97772",
-      href: "tel:+918000097772"
-    },
-    {
-      icon: Mail,
-      label: "Email",
-      value: "malove7@live.com",
-      href: "mailto:malove7@live.com"
-    },
-    {
-      icon: Linkedin,
-      label: "LinkedIn",
-      value: "linkedin.com/in/mns7",
-      href: "https://linkedin.com/in/mns7"
-    },
-    {
-      icon: MapPin,
-      label: "Location",
-      value: "Ahmedabad, Gujarat, India",
-      href: "#"
-    }
-  ];
-
-  return (
-    <section id="contact" className="py-20 bg-gradient-hero">
+  const contactInfo = [{
+    icon: Phone,
+    label: "Phone",
+    value: "+91 80000 97772",
+    href: "tel:+918000097772"
+  }, {
+    icon: Mail,
+    label: "Email",
+    value: "malove7@live.com",
+    href: "mailto:malove7@live.com"
+  }, {
+    icon: Linkedin,
+    label: "LinkedIn",
+    value: "linkedin.com/in/mns7",
+    href: "https://linkedin.com/in/mns7"
+  }, {
+    icon: MapPin,
+    label: "Location",
+    value: "Ahmedabad, Gujarat, India",
+    href: "#"
+  }];
+  return <section id="contact" className="py-20 bg-gradient-hero">
       <div className="max-w-6xl mx-auto px-6">
         {/* Section Header */}
         <div className="text-center mb-16">
@@ -59,15 +44,10 @@ const Contact = () => {
                 Get in Touch
               </h3>
               
-              {contactInfo.map((info, index) => (
-                <a 
-                  key={index}
-                  href={info.href}
-                  className={`flex items-center p-4 bg-white/10 rounded-lg hover:bg-white/20 transition-smooth group ${
-                    info.href === '#' ? 'cursor-default' : 'hover:transform hover:translate-x-2'
-                  }`}
-                  {...(info.href.startsWith('http') && { target: '_blank', rel: 'noopener noreferrer' })}
-                >
+              {contactInfo.map((info, index) => <a key={index} href={info.href} className={`flex items-center p-4 bg-white/10 rounded-lg hover:bg-white/20 transition-smooth group ${info.href === '#' ? 'cursor-default' : 'hover:transform hover:translate-x-2'}`} {...info.href.startsWith('http') && {
+              target: '_blank',
+              rel: 'noopener noreferrer'
+            }}>
                   <div className="bg-gradient-accent rounded-lg p-3 mr-4 flex-shrink-0">
                     <info.icon className="h-5 w-5 text-accent-foreground" />
                   </div>
@@ -77,34 +57,21 @@ const Contact = () => {
                       {info.value}
                     </p>
                   </div>
-                  {info.href !== '#' && info.href.startsWith('http') && (
-                    <ExternalLink className="h-4 w-4 text-white/50 ml-auto group-hover:text-accent transition-smooth" />
-                  )}
-                </a>
-              ))}
+                  {info.href !== '#' && info.href.startsWith('http') && <ExternalLink className="h-4 w-4 text-white/50 ml-auto group-hover:text-accent transition-smooth" />}
+                </a>)}
             </div>
 
             {/* Call to Action */}
             <div className="space-y-4">
-              <Button 
-                variant="hero" 
-                size="lg"
-                className="w-full text-lg py-4"
-                onClick={() => window.open('mailto:malove7@live.com', '_blank')}
-              >
+              <Button variant="hero" size="lg" className="w-full text-lg py-4" onClick={() => window.open('mailto:malove7@live.com', '_blank')}>
                 Send Email
                 <Mail className="ml-2 h-5 w-5" />
               </Button>
               
-              <Button 
-                variant="outline" 
-                size="lg"
-                className="w-full text-lg py-4 border-white/30 text-white hover:bg-white/10"
-                onClick={() => {
-                  // In a real implementation, this would download the actual resume
-                  console.log('Download resume functionality would be implemented here');
-                }}
-              >
+              <Button variant="outline" size="lg" onClick={() => {
+              // In a real implementation, this would download the actual resume
+              console.log('Download resume functionality would be implemented here');
+            }} className="w-full text-lg py-4 border-white/30 text-white bg-slate-600 hover:bg-slate-500">
                 Download Resume
                 <Download className="ml-2 h-5 w-5" />
               </Button>
@@ -151,8 +118,6 @@ const Contact = () => {
           </Card>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default Contact;

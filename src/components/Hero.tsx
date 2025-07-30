@@ -1,20 +1,18 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Download } from "lucide-react";
 import heroBackground from "@/assets/hero-background.jpg";
-
 const Hero = () => {
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
-    element?.scrollIntoView({ behavior: 'smooth' });
+    element?.scrollIntoView({
+      behavior: 'smooth'
+    });
   };
-
-  return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+  return <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Hero Background */}
-      <div 
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-        style={{ backgroundImage: `url(${heroBackground})` }}
-      >
+      <div className="absolute inset-0 bg-cover bg-center bg-no-repeat" style={{
+      backgroundImage: `url(${heroBackground})`
+    }}>
         <div className="absolute inset-0 bg-gradient-hero opacity-90"></div>
       </div>
       
@@ -42,22 +40,12 @@ const Hero = () => {
           
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-8">
-            <Button 
-              variant="hero" 
-              size="lg"
-              onClick={() => scrollToSection('experience')}
-              className="text-lg px-8 py-4"
-            >
+            <Button variant="hero" size="lg" onClick={() => scrollToSection('experience')} className="text-lg px-8 py-4">
               View My Work
               <ArrowRight className="ml-2 h-5 w-5" />
             </Button>
             
-            <Button 
-              variant="outline" 
-              size="lg"
-              onClick={() => scrollToSection('contact')}
-              className="text-lg px-8 py-4 border-white/30 text-white hover:bg-white/10"
-            >
+            <Button variant="outline" size="lg" onClick={() => scrollToSection('contact')} className="text-lg px-8 py-4 border-white/30 text-slate-50 bg-slate-600 hover:bg-slate-500">
               Connect with Me
             </Button>
           </div>
@@ -90,8 +78,6 @@ const Hero = () => {
           <div className="w-1 h-3 bg-white/60 rounded-full mt-2 animate-pulse"></div>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default Hero;
