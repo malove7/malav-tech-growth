@@ -1,7 +1,11 @@
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Download } from "lucide-react";
 import heroBackground from "@/assets/hero-background.jpg";
+import ContactDialog from "./ContactDialog";
 const Hero = () => {
+  const [isContactDialogOpen, setIsContactDialogOpen] = useState(false);
+  
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     element?.scrollIntoView({
@@ -45,7 +49,7 @@ const Hero = () => {
               <ArrowRight className="ml-2 h-5 w-5" />
             </Button>
             
-            <Button variant="outline" size="lg" onClick={() => scrollToSection('contact')} className="text-lg px-8 py-4 border-white/30 text-slate-50 bg-slate-600 hover:bg-slate-500">
+            <Button variant="outline" size="lg" onClick={() => setIsContactDialogOpen(true)} className="text-lg px-8 py-4 border-white/30 text-slate-50 bg-slate-600 hover:bg-slate-500">
               Connect with Me
             </Button>
           </div>
@@ -78,6 +82,11 @@ const Hero = () => {
           <div className="w-1 h-3 bg-white/60 rounded-full mt-2 animate-pulse"></div>
         </div>
       </div>
+      
+      <ContactDialog 
+        open={isContactDialogOpen} 
+        onOpenChange={setIsContactDialogOpen} 
+      />
     </section>;
 };
 export default Hero;
