@@ -1,10 +1,12 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
+import ContactDialog from "./ContactDialog";
 
 const Navigation = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isContactDialogOpen, setIsContactDialogOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -66,7 +68,7 @@ const Navigation = () => {
             <Button 
               variant="hero" 
               size="sm"
-              onClick={() => scrollToSection('contact')}
+              onClick={() => setIsContactDialogOpen(true)}
             >
               Contact Me
             </Button>
@@ -103,7 +105,7 @@ const Navigation = () => {
                 <Button 
                   variant="hero" 
                   size="sm"
-                  onClick={() => scrollToSection('contact')}
+                  onClick={() => setIsContactDialogOpen(true)}
                   className="w-full"
                 >
                   Contact Me
@@ -113,6 +115,11 @@ const Navigation = () => {
           </div>
         )}
       </div>
+      
+      <ContactDialog 
+        open={isContactDialogOpen} 
+        onOpenChange={setIsContactDialogOpen} 
+      />
     </nav>
   );
 };
