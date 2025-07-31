@@ -68,13 +68,7 @@ const Contact = () => {
                 <Mail className="ml-2 h-5 w-5" />
               </Button>
               
-              <Button variant="outline" size="lg" onClick={() => {
-              // In a real implementation, this would download the actual resume
-              console.log('Download resume functionality would be implemented here');
-            }} className="w-full text-lg py-4 border-white/30 text-white bg-slate-600 hover:bg-slate-500">
-                Download Resume
-                <Download className="ml-2 h-5 w-5" />
-              </Button>
+              
             </div>
           </div>
 
